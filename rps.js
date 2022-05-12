@@ -61,4 +61,45 @@ function playRound(playerSelection, computerSelection){
         }
     }
     
+    //return round winner
+    return winner;
 }
+
+
+//create our main function
+function game(){
+    // init scores
+    let compScore = 0;
+    let playerScore = 0;
+    
+    // play 5 rounds
+    for (i = 0; i < 5; i++){
+
+        // init vars
+        let compInp = computerPlay();
+        let userInp = 0;
+        let rawInput = window.prompt("Rock Paper or Scissors?").toLowerCase();
+
+        // change user input to nums
+        switch (rawInput){
+            case "paper":
+                userInp = 1;
+                break;
+            case "scissors":
+                userInp = 2;
+                break;
+        }
+
+        if (playRound(userInp, compInp) === "player"){
+            playerScore++;
+        }
+        else{
+            compScore++;
+        }
+            
+    }
+
+    //print winner of the round
+    console.log(Math.max(compScore, playerScore));
+}
+game();

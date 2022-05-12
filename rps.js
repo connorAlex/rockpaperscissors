@@ -78,10 +78,10 @@ function game(){
         // init vars
         let compInp = computerPlay();
         let userInp = 0;
-        let rawInput = window.prompt("Rock Paper or Scissors?").toLowerCase();
+        let rawInput = window.prompt("Rock Paper or Scissors?");
 
         // change user input to nums
-        switch (rawInput){
+        switch (rawInput.toLowerCase()){
             case "paper":
                 userInp = 1;
                 break;
@@ -89,17 +89,27 @@ function game(){
                 userInp = 2;
                 break;
         }
-
-        if (playRound(userInp, compInp) === "player"){
+        let winner = playRound(userInp, compInp);
+        console.log(winner);
+        if (winner === "player"){
             playerScore++;
         }
-        else{
+        else if (winner === "computer"){
             compScore++;
         }
+        
             
     }
 
     //print winner of the round
-    console.log(Math.max(compScore, playerScore));
+    if (playerScore > compScore){
+        console.log("Player Wins");
+    }
+    else if (compScore > playerScore){
+        console.log("Computer Wins");
+    }
+    else{
+        console.log("its a tie!!");
+    }
 }
 game();

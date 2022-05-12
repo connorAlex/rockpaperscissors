@@ -112,4 +112,3 @@ function game(){
         console.log("its a tie!!");
     }
 }
-game();

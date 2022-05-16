@@ -1,7 +1,13 @@
 body{
     display:flex;
     flex-direction: column;
+    
 }
+.flesh, .steel{
+    display:flex;
+    flex-direction: column;
+}
+
 
 .header{
     align-self: center;
@@ -42,20 +48,12 @@ img{
     justify-content: space-between;
     padding: 0px 50px 0px 50px;
 }
-.player_choice{
+.player_choice, .comp_choice{
     width: 300px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border-style: solid;
     border-width: 2px;
     border-color: black;
-    
-}
-.comp_choice{
-    width: 300px;
-    display:flex;
-    justify-content: space-around;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
+    padding: 40px 40px
 }

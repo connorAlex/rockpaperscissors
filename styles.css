@@ -1,0 +1,61 @@
+body{
+    display:flex;
+    flex-direction: column;
+}
+
+.header{
+    align-self: center;
+}
+
+.mvm{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+}
+
+.lives{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+}
+
+.figures{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+}
+
+.results{
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    width: 300px;
+    height: auto;
+}
+
+.action_box{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0px 50px 0px 50px;
+}
+.player_choice{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    
+}
+.comp_choice{
+    width: 300px;
+    display:flex;
+    justify-content: space-around;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}

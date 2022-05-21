@@ -69,7 +69,7 @@ function game(){
     let round = 0;
     let compScore = 0;
     let playerScore = 0;
-    let compInp = computerPlay();
+    
     let winner = "";
     let input = document.querySelector('.player_choice');
     let results = document.querySelector('.results');
@@ -77,6 +77,7 @@ function game(){
     let comp_health = document.querySelector('.comp_lives');
 
     input.addEventListener('click', event => {
+        let compInp = computerPlay();
         round += 1;
         let userInp = event.target.value;
         console.log(userInp);
@@ -91,6 +92,10 @@ function game(){
         }
         else if (winner === "computer"){
             compScore++;
+            player_health.removeChild(document.getElementById(`life_${round}`));
+        }
+        else{
+            comp_health.removeChild(document.getElementById(`clife_${round}`));
             player_health.removeChild(document.getElementById(`life_${round}`));
         }
             

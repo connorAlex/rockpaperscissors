@@ -10,63 +10,68 @@
         <link rel = "stylesheet" href = "styles.css">
     </head>
     <body>
-    <div class = "header">
+    <div class = "header border-8bit">
         <h1>
-            Rock Paper Scissors
+            C:\TOP\ROCK_PAPER_SCISSORS\
         </h1>
     </div>
     <div class = "mvm">
-        <h2>FLESH</h2>
-        <h2>VS</h2>
-        <h2>STEEL</h2>
+        <h1 class = "box">
+            C:\USERS\FLESH
+            <div id = "plives" class = "player_lives">
+                
+                <div id = "life_0">*</div>
+                <div id = "life_1">*</div>
+                <div id = "life_2">*</div>
+                <div id = "life_3">*</div>
+                <div id = "life_4">*</div>
+            </div>
+        </h2>
+        <h1 style = "padding:25px;">VS</h1>
+        <h1 class = "box">
+            C:\APPS\STEEL
+            <div class = "comp_lives">
+                <div id = "clife_0">*</div>
+                <div id = "clife_1">*</div>
+                <div id = "clife_2">*</div>
+                <div id = "clife_3">*</div>
+                <div id = "clife_4">*</div>
+                
+            </div>
+        </h1>
     </div>
 
     <div class = "main">
         
         <div class = "flesh">
             
-            <div id = "plives" class = "player_lives">
-                
-                <div id = "life_0">♥</div>
-                <div id = "life_1">♥</div>
-                <div id = "life_2">♥</div>
-                <div id = "life_3">♥</div>
-                <div id = "life_4">♥</div>
-                <div class = "spacer"></div>
-            </div>
-            
+
             <img id = "man" style= "transform: scaleX(-1)" src = "stickfig.png">
-            <div class = "action_box">
+            <div class = "action_box border-8bit">
                 <div  class = "player_choice">
-                    <button  class = "option" value = 0>R</button>
-                    <button  class = "option" value = 1 >P</button>
-                    <button  class = "option" value = 2>S</button>
+                    <button  class = "option border-8bit" value = 0>R</button>
+                    <button  class = "option border-8bit" value = 1 >P</button>
+                    <button  class = "option border-8bit" value = 2>S</button>
                 </div>
             </div>
         </div>
-        <div class = "results"></div>
+        <h3 class = "round_results"></h3>
+        
         <div class = "steel">
-            <div class = "comp_lives">
-                <div id = "clife_0">♥</div>
-                <div id = "clife_1">♥</div>
-                <div id = "clife_2">♥</div>
-                <div id = "clife_3">♥</div>
-                <div id = "clife_4">♥</div>
-                <div class = "spacer"></div>
-            </div>
+            
             <img id = "robot" src = "robot.png">
-            <div class = "action_box">
+            <div class = "action_box border-8bit">
                 <div class = "comp_choice">
-                    <button id = "c_rock" class = "option">R</button>
-                    <button id = "c_paper" class = "option">P</button>
-                    <button id = "c_scissors" class = "option">S</button>
+                    <div id = "c_rock" class = "option border-8bit">R</div>
+                    <div id = "c_paper" class = "option border-8bit">P</div>
+                    <div id = "c_scissors" class = "option border-8bit">S</div>
                 </div>
             </div>
         </div>
         
 
     </div>
-    <div class = "round_results"></div>
+    <h1 class = "results"></h1>
     </body>
     <script src = "rps.js" defer></script>
 </html>

@@ -1,15 +1,16 @@
 body{
-    display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
+    background-color: #f8f8f8;
    
 }
 
 .main{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
+    gap: 90px;
 }
 .flesh, .steel{
     display:flex;
@@ -17,19 +18,39 @@ body{
     align-items: center;
 }
 button{
-    padding: 25px;
     font-family: 'Press Start 2P', cursive;
+    background-color: inherit;
+    border-color: inherit;
+    box-shadow: inherit;
+    border-image: inherit;
     
+    transition-duration: .5s;
+}
+button:hover{
+    background-color: #dd2020;
 }
 .header{
     align-self: center;
+    background-color:#787878;
+    text-align: center;
+    padding: 10px;
+    margin-inline: 150px !important;
+    min-width: fit-content;
+    
 }
 
 .mvm{
     display: flex;
-    justify-content: space-between;
-    padding: 0px 50px 0px 50px;
-    margin-bottom: 0px;
+    justify-content: center;
+    gap: 90px;
+    
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 25px;
 }
 
 .results{
@@ -37,6 +58,8 @@ button{
     justify-content: center;
     align-self: center;
     text-align: center;
+    margin-top: 50px;
+    
 }
 
 #man{
@@ -46,8 +69,9 @@ button{
     object-position: 0px -20%;
 }
 .player_lives, .comp_lives{
+    color: #dd2020;
     font-size: 30px;
-    padding: 0px 0px 0px 31px;
+
     display: flex;
     gap: 40px;
     align-items: center;
@@ -68,18 +92,40 @@ button{
 .action_box{
     display:flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0px 50px 0px 50px;
+    background-color: #a5a2a2;
 }
 .player_choice, .comp_choice{
     width: 300px;
     display: flex;
     justify-content: space-between;
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
-    padding: 40px 40px
+    padding: 40px 40px;
+    
 }
 .round_results{
+    line-height: 25px;
     text-align:center;
+    margin-top: 100px;
+    width:100px;
+    min-width:50px;
+    gap: 100px;
+}
+.option{
+    padding:25px !important;
+    box-sizing: inherit;
+    border-style: solid;
+    font-size: 15px;
+    background-color: white;
+}
+.border-8bit{
+    border-style: solid;
+    border-width: 3px 1px;
+    box-shadow: -6px 0 0 -2px,
+        6px 0 0 -2px !important;
+    margin: 0 .5em;
+    
+    position: relative;
+    z-index: 1;
+    
 }

@@ -11,19 +11,24 @@ function computerPlay(){
 function playRound(playerSelection, computerSelection){
     
     let winner = "";
-    
-
+    console.log("player: " + playerSelection + "    computer: " + computerSelection);
+    console.log(typeof(playerSelection));
     //player is rock
     if (playerSelection === 0){
+        console.log("rock selected");
         switch (computerSelection){
             case 0:     //tie
-                winner = "tie";
+                winner = "TIE";
                 break;
             case 1:     //computer wins
-                winner = "computer";
+                console.log("rock loses to paper");
+                winner = "STEEL";
                 break;
             case 2:     //player wins
-                winner = "player";
+                console.log("rock beats scissors");
+                winner = "FLESH";
+                break;
+            default:
                 break;
         }
     } 
@@ -31,29 +36,30 @@ function playRound(playerSelection, computerSelection){
     else if (playerSelection === 1){
         switch (computerSelection){
             case 0:     //player wins
-                winner = "player";
+                winner = "FLESH";
                 break;
             case 1:     //tie
-                winner = "tie";
+                winner = "TIE";
                 break;
             case 2:     //computer wins
-                winner = "computer";
+                winner = "STEEL";
                 break;
+            
         }
     }
     //Player is Scissors
-    else{
+    else if (playerSelection === 2){
         switch (computerSelection){
             case 0:     //computer wins
-                winner = "computer";
+                winner = "STEEL";
                 break;
             
             case 1:     //player wins
-                winner = "player";
+                winner = "FLESH";
                 break;
     
             case 2:     //tie
-                winner = "tie";
+                winner = "TIE";
                 break;
         }
     }
@@ -77,19 +83,45 @@ function game(){
     let comp_health = document.querySelector('.comp_lives');
 
     input.addEventListener('click', event => {
+        event.stopPropagation();
         if (round <= 5){
             let compInp = computerPlay();
+            
             let userInp = event.target.value;
-            winner = playRound(userInp, compInp);
-            document.querySelector('.round_results').innerHTML = `Round ${round+1} Winner: ${winner}`;
+
+            //make sure an choice box was selected.
+            if (typeof(userInp) === 'undefined'){
+                return 0;
+            }
+            //play round
+            winner = playRound(Number(userInp), Number(compInp));
+
+            document.querySelector('.round_results').innerHTML = `Round\n${round+1} Winner\n${winner}`;
+
+            switch (compInp){
+                case 0:
+                    document.querySelector('#c_rock').style.backgroundColor = "#dd2020";
+                    document.querySelector('#c_paper').style.backgroundColor = "white";
+                    document.querySelector('#c_scissors').style.backgroundColor = "white";
+                    break;
+                case 1:
+                    document.querySelector('#c_rock').style.backgroundColor = "white";
+                    document.querySelector('#c_paper').style.backgroundColor = "#dd2020";
+                    document.querySelector('#c_scissors').style.backgroundColor = "white";
+                    break;
+                case 2:
+                    document.querySelector('#c_rock').style.backgroundColor = "white";
+                    document.querySelector('#c_paper').style.backgroundColor = "white";
+                    document.querySelector('#c_scissors').style.backgroundColor = "#dd2020";
+                    break;
+            }
             
-            
-            if (winner === "player"){
+            if (winner === "FLESH"){
                 playerScore++;
                 comp_health.removeChild(document.getElementById(`clife_${round}`));
     
             }
-            else if (winner === "computer"){
+            else if (winner === "STEEL"){
                 compScore++;
                 player_health.removeChild(document.getElementById(`life_${round}`));
             }
@@ -100,6 +132,7 @@ function game(){
                 
         
             if (round === 4){
+                console.log(playerScore + " " + compScore);
                 //print winner of the round
                 if (playerScore > compScore){
                     console.log("Player Wins");
@@ -108,7 +141,7 @@ function game(){
                 }
                 else if (compScore > playerScore){
                     console.log("Computer Wins");
-                    results.innerHTML = "COLD STEEL PREVAILS"
+                    results.innerHTML = "STEEL PREVAILS"
                     return 0;
                 }
                 else{

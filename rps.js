@@ -66,43 +66,55 @@ function playRound(playerSelection, computerSelection){
 //create our main function
 function game(){
     // init scores
+    let round = 0;
     let compScore = 0;
     let playerScore = 0;
-    
-    // play 5 rounds
-    for (i = 0; i < 5; i++){
-        console.log(`ROUND ${i + 1}`);
-        // init vars
-        let compInp = computerPlay();
-        let userInp = 0;
-        let winner = "";
-        const input = document.querySelector('.player_choice');
+    let compInp = computerPlay();
+    let winner = "";
+    let input = document.querySelector('.player_choice');
+    let results = document.querySelector('.results');
+    let player_health = document.querySelector('.player_lives');
+    let comp_health = document.querySelector('.comp_lives');
 
-        input.addEventListener('click', event => {
-            userInp = event.target.value;
-            winner = playRound(userInp, compInp);
-        });
+    input.addEventListener('click', event => {
+        round += 1;
+        let userInp = event.target.value;
+        console.log(userInp);
+        winner = playRound(userInp, compInp);
+        document.querySelector('.round_results').innerHTML = `Round ${round} Winner: ${winner}`;
+        console.log(round);
 
-        
-        console.log(winner);
         if (winner === "player"){
             playerScore++;
+            comp_health.removeChild(document.getElementById(`clife_${round}`));
+
         }
         else if (winner === "computer"){
             compScore++;
+            player_health.removeChild(document.getElementById(`life_${round}`));
         }
             
-    }
-
-    //print winner of the round
-    if (playerScore > compScore){
-        console.log("Player Wins");
-    }
-    else if (compScore > playerScore){
-        console.log("Computer Wins");
-    }
-    else{
-        console.log("its a tie!!");
-    }
+    
+        if (round === 5){
+            //print winner of the round
+            if (playerScore > compScore){
+                console.log("Player Wins");
+                results.innerHTML = "FLESH CONQUERS "
+            }
+            else if (compScore > playerScore){
+                console.log("Computer Wins");
+                results.innerHTML = "COLD STEEL PREVAILS"
+            }
+            else{
+                console.log("DRAW");
+                results.innerHTML = "DRAW";
+            }
+        }
+        
+    });
+    
+    
+   
 }
 
+game();

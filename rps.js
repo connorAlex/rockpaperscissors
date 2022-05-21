@@ -1,9 +1,5 @@
 //Rock Paper Scissors.
 
-//Game consists of comparing user input vs. randomly
-//generated computer input (i.e.[0,1,2])
-
-//Rock: 0, Paper: 1, Scissors: 2
 
 //Create computer input, from 0 to 2
 function computerPlay(){
@@ -15,6 +11,7 @@ function computerPlay(){
 function playRound(playerSelection, computerSelection){
     
     let winner = "";
+    
 
     //player is rock
     if (playerSelection === 0){
@@ -74,22 +71,19 @@ function game(){
     
     // play 5 rounds
     for (i = 0; i < 5; i++){
-
+        console.log(`ROUND ${i + 1}`);
         // init vars
         let compInp = computerPlay();
         let userInp = 0;
-        let rawInput = window.prompt("Rock Paper or Scissors?");
+        let winner = "";
+        const input = document.querySelector('.player_choice');
 
-        // change user input to nums
-        switch (rawInput.toLowerCase()){
-            case "paper":
-                userInp = 1;
-                break;
-            case "scissors":
-                userInp = 2;
-                break;
-        }
-        let winner = playRound(userInp, compInp);
+        input.addEventListener('click', event => {
+            userInp = event.target.value;
+            winner = playRound(userInp, compInp);
+        });
+
+        
         console.log(winner);
         if (winner === "player"){
             playerScore++;
@@ -97,7 +91,6 @@ function game(){
         else if (winner === "computer"){
             compScore++;
         }
-        
             
     }
 
@@ -112,3 +105,4 @@ function game(){
         console.log("its a tie!!");
     }
 }
+

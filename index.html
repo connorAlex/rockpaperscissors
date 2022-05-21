@@ -3,7 +3,6 @@
     <head>
         <meta charset = "utf-8">
         <title> Rock Paper Scissors</title>
-        <script src = "rps.js"></script>
         <link rel = "stylesheet" href = "styles.css">
     </head>
     <body>
@@ -11,6 +10,7 @@
         <h1>
             Rock Paper Scissors
         </h1>
+        <button id = "play" onclick="game()"> play</button>
     </div>
     <div class = "mvm">
         <h2>FLESH</h2>
@@ -20,34 +20,39 @@
 
     <div class = "main">
         <div class = "flesh">
-            <div class = "playerLives">
-                . . .
+            <div class = "player_lives">
+                <div id = "life_one">.</div>
+                <div id = "life_two">.</div>
+                <div id = "life_three">.</div>
             </div>
             
-            <img style= "transform: scaleX(-1)" src = "stickfig.png">
+            <img id = "man" style= "transform: scaleX(-1)" src = "stickfig.png">
             <div class = "action_box">
-                <div class = "player_choice">
-                    <div id = "p_rock" class = "option">R</div>
-                    <div id = "p_paper" class = "option">P</div>
-                    <div id = "p_scissors" class = "option">S</div>
+                <div  class = "player_choice">
+                    <button  class = "option" value = 0>R</button>
+                    <button  class = "option" value = 1 >P</button>
+                    <button  class = "option" value = 2>S</button>
                 </div>
             </div>
         </div>
         <div class = "results">_!</div>
         <div class = "steel">
             <div class = "comp_lives">
-                . . .
+                <div id = "clife_one">.</div>
+                <div id = "clife_two">.</div>
+                <div id = "clife_three">.</div>
             </div>
-            <img src = "robot.png">
+            <img id = "robot" src = "robot.png">
             <div class = "action_box">
                 <div class = "comp_choice">
-                    <div id = "c_rock" class = "option">R</div>
-                    <div id = "c_paper" class = "option">P</div>
-                    <div id = "c_scissors" class = "option">S</div>
+                    <button id = "c_rock" class = "option">R</button>
+                    <button id = "c_paper" class = "option">P</button>
+                    <button id = "c_scissors" class = "option">S</button>
                 </div>
             </div>
         </div>
 
     </div>
     </body>
+    <script src = "rps.js" defer></script>
 </html>

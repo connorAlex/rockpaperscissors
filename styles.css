@@ -1,14 +1,24 @@
 body{
     display:flex;
     flex-direction: column;
-    
+    justify-content: center;
+   
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
 }
 .flesh, .steel{
     display:flex;
     flex-direction: column;
+    align-items: center;
 }
-
-
+button{
+    padding: 25px;
+    
+    
+}
 .header{
     align-self: center;
 }
@@ -19,29 +29,35 @@ body{
     padding: 0px 50px 0px 50px;
 }
 
-.lives{
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 50px 0px 50px;
-}
-
-.figures{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    padding: 0px 50px 0px 50px;
-}
-
 .results{
     display: flex;
     justify-content: center;
+    align-self: center;
 }
 
-img{
+#man{
     width: 300px;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
+    object-position: 0px -20%;
 }
-
+.player_lives, .comp_lives{
+    padding: 0px 50px 0px 50px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+}
+.comp_lives{
+    align-self: flex-end;
+}
+#robot{
+    object-fit: cover;
+    width: 300px;
+    height: 250px;
+    object-position: 0px -15%;
+}
 .action_box{
     display:flex;
     flex-flow: row wrap;
@@ -53,7 +69,7 @@ img{
     display: flex;
     justify-content: space-between;
     border-style: solid;
-    border-width: 2px;
+    border-width: 5px;
     border-color: black;
     padding: 40px 40px
 }

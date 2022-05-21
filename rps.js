@@ -77,44 +77,49 @@ function game(){
     let comp_health = document.querySelector('.comp_lives');
 
     input.addEventListener('click', event => {
-        let compInp = computerPlay();
-        round += 1;
-        let userInp = event.target.value;
-        console.log(userInp);
-        winner = playRound(userInp, compInp);
-        document.querySelector('.round_results').innerHTML = `Round ${round} Winner: ${winner}`;
-        console.log(round);
-
-        if (winner === "player"){
-            playerScore++;
-            comp_health.removeChild(document.getElementById(`clife_${round}`));
-
-        }
-        else if (winner === "computer"){
-            compScore++;
-            player_health.removeChild(document.getElementById(`life_${round}`));
-        }
-        else{
-            comp_health.removeChild(document.getElementById(`clife_${round}`));
-            player_health.removeChild(document.getElementById(`life_${round}`));
-        }
+        if (round <= 5){
+            let compInp = computerPlay();
+            let userInp = event.target.value;
+            winner = playRound(userInp, compInp);
+            document.querySelector('.round_results').innerHTML = `Round ${round+1} Winner: ${winner}`;
             
+            
+            if (winner === "player"){
+                playerScore++;
+                comp_health.removeChild(document.getElementById(`clife_${round}`));
     
-        if (round === 5){
-            //print winner of the round
-            if (playerScore > compScore){
-                console.log("Player Wins");
-                results.innerHTML = "FLESH CONQUERS "
             }
-            else if (compScore > playerScore){
-                console.log("Computer Wins");
-                results.innerHTML = "COLD STEEL PREVAILS"
+            else if (winner === "computer"){
+                compScore++;
+                player_health.removeChild(document.getElementById(`life_${round}`));
             }
             else{
-                console.log("DRAW");
-                results.innerHTML = "DRAW";
+                comp_health.removeChild(document.getElementById(`clife_${round}`));
+                player_health.removeChild(document.getElementById(`life_${round}`));
             }
+                
+        
+            if (round === 4){
+                //print winner of the round
+                if (playerScore > compScore){
+                    console.log("Player Wins");
+                    results.innerHTML = "FLESH CONQUERS "
+                    return 0;
+                }
+                else if (compScore > playerScore){
+                    console.log("Computer Wins");
+                    results.innerHTML = "COLD STEEL PREVAILS"
+                    return 0;
+                }
+                else{
+                    console.log("DRAW");
+                    results.innerHTML = "DRAW";
+                    return 0;
+                }
+            }
+            round += 1;
         }
+        
         
     });
     

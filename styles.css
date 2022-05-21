@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Press Start 2P', cursive;
    
 }
 
@@ -17,7 +18,7 @@ body{
 }
 button{
     padding: 25px;
-    
+    font-family: 'Press Start 2P', cursive;
     
 }
 .header{
@@ -46,13 +47,14 @@ button{
 }
 .player_lives, .comp_lives{
     font-size: 30px;
-    padding: 0px 50px 0px 50px;
+    padding: 0px 0px 0px 31px;
     display: flex;
     gap: 40px;
     align-items: center;
     justify-content: center;
     align-self: flex-start;
-    
+    min-height: 35px;
+    margin: 15px;
 }
 .comp_lives{
     align-self: flex-end;
